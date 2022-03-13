@@ -63,7 +63,7 @@
     top: 0;
     left: 0;
 }
-.music_icon_mouse{
+.music_icon_mouse{  /*鼠标点击生成音乐图标*/
     display: block;
     width: 20px;
     height: 29px;
@@ -73,4 +73,44 @@
     -webkit-user-drag: none;
     opacity: 1;
     transition: top 2s,left 2s,right 2s,opacity 2s;
+}
+.ripple{
+    position: absolute;
+    border-radius: 50%;
+    height: 3px;
+    width: 3px;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 10px gray,0 0 10px gray inset;
+    animation: ripple_extend 10s linear;
+}
+@keyframes ripple_extend{
+    from{}
+    to{
+        width: 300vw;
+        height: 300vw;
+    }
+}
+.ripple_text{
+    position: fixed;
+    font-size: 2em;
+    margin: 0;
+    color: black;
+    opacity: 0;
+    animation: ripple_text_disapper 2s forwards;
+}
+@keyframes ripple_text_disapper{
+    0%{
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.ripple>div{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
