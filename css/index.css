@@ -1,0 +1,76 @@
+#top_signin{
+    height: 70vh;
+    width: 70vh;
+    background-color: blue;
+    transform: 
+        translateX(-50%)
+        rotate(45deg)
+        scale(1);
+    position: fixed;
+    left: 50%;
+    top: -70vh;
+    transition: top 2s;
+    z-index: 10;
+}
+#top_signin.registering{
+    top:0;
+}
+#top_signin:active{
+    transition: top 2s transform 1s;
+    transform:
+        translateX(-50%)
+        rotate(45deg)
+        scale(0.99);
+}
+#choose{
+    position: relative;
+    margin:20vh auto auto auto;
+    background-color: transparent;
+    width: 50vw;
+    height: 40vh;
+    top: 0;
+    transition: top 2s ,width 2.1s;
+}
+#choose .link{
+    display: block;
+    height: inherit;
+    width: 20vh;
+    background-color: azure;
+    position: absolute;
+}
+#choose .link::after{
+    content: "";
+    display: block;
+    border: 10vh solid transparent;
+    border-top: 10vh solid black;
+    margin-top: 40vh;
+}
+#choose .link:first-child{
+    left: 0;
+}
+#choose .link:last-child{
+    right: 0;
+}
+#choose.registering{
+    top: 20vh;
+    width: 120vh;
+}
+#index_bg{
+    z-index: -1;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.music_icon_mouse{
+    display: block;
+    width: 20px;
+    height: 29px;
+    position: fixed;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    opacity: 1;
+    transition: top 2s,left 2s,right 2s,opacity 2s;
+}
