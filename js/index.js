@@ -30,7 +30,12 @@ window.onload=()=>{
     //         },2000);
     //     },100);
     // }
-    body.onclick=(e)=>{
+    var canRipple=true;
+    index_bg.onclick=click;
+    document.getElementById("choose").onclick=click;
+    var click=(e)=>{
+        if(!canRipple)return;
+        canRipple=false;
         var x=e.clientX;
         var y=e.clientY;
         var ripple=document.createElement("div");
@@ -41,19 +46,25 @@ window.onload=()=>{
         for(var i=0;i<6;i++){
             let p=document.createElement("p");
             p.classList.add("ripple_text");
-            let top=(i/3)*40+40*Math.random();
-            let left=(i%3)*33+20*Math.random();
+            let top=(5+(i/3)*40+40*Math.random())*body.clientHeight/100;
+            let left=(8+(i%3)*30+19*Math.random())*body.clientWidth/100;
             let d=Math.sqrt(Math.pow(Math.abs(y-top),2)+Math.pow(Math.abs(x-left),2));
-            let delay=d/body.clientWidth/3*10;
+            let delay=10/(1.5*body.offsetWidth)*d;
+            delay=delay>=1?delay-1:delay;
             p.innerText=music_names[i];
-            p.setAttribute("style","top:"+top+"vh;left:"+left+"vw;animation-delay:"+delay+"s;");
-            div.appendChild(p);
-            console.log(x,y,left,top,d,body.clientWidth);
+            p.setAttribute("style","top:"+top+"px;left:"+left+"px;animation-delay:"+delay+"s;");
+            index_bg.appendChild(p);
+            setTimeout(()=>{
+                p.remove();
+            },1000*(delay+2));
+            // console.log(x,y,left,top,d,body.clientWidth);
         }
-        index_bg.append(div);
+        // ripple.append(div);
         index_bg.append(ripple);
         setTimeout(()=>{
-            // ripple.remove();
+            ripple.remove();
+            canRipple=true;
         },10000);
     }
+    // index_bg.onclick=click;
 }
