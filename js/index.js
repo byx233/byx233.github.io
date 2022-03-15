@@ -31,9 +31,7 @@ window.onload=()=>{
     //     },100);
     // }
     var canRipple=true;
-    index_bg.onclick=click;
-    document.getElementById("choose").onclick=click;
-    var click=(e)=>{
+    index_bg.onclick=(e)=>{
         if(!canRipple)return;
         canRipple=false;
         var x=e.clientX;
@@ -50,7 +48,7 @@ window.onload=()=>{
             let left=(8+(i%3)*30+19*Math.random())*body.clientWidth/100;
             let d=Math.sqrt(Math.pow(Math.abs(y-top),2)+Math.pow(Math.abs(x-left),2));
             let delay=10/(1.5*body.offsetWidth)*d;
-            delay=delay>=1?delay-1:delay;
+            // delay=delay>=1?delay-1:delay;
             p.innerText=music_names[i];
             p.setAttribute("style","top:"+top+"px;left:"+left+"px;animation-delay:"+delay+"s;");
             index_bg.appendChild(p);

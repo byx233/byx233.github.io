@@ -26,7 +26,8 @@ body{
         scale(0.99);
 }
 #choose{
-    position: relative;
+    z-index: -1;
+    /* position: relative; */
     margin:20vh auto auto auto;
     background-color: transparent;
     width: 50vw;
@@ -35,11 +36,14 @@ body{
     transition: top 2s ,width 2.1s;
 }
 #choose .link{
+    /* z-index: 10; */
+    top: 20vh;
     display: block;
-    height: inherit;
+    height: 40vh;
     width: 20vh;
     background-color: azure;
     position: absolute;
+    transition: top 2s,left 2.1s,right 2.1s;
 }
 #choose .link::after{
     content: "";
@@ -49,14 +53,18 @@ body{
     margin-top: 40vh;
 }
 #choose .link:first-child{
-    left: 0;
+    left: 25vw;
 }
 #choose .link:last-child{
-    right: 0;
+    right: 25vw;
 }
-#choose.registering{
-    top: 20vh;
-    width: 120vh;
+#choose.registering .link:first-child{
+    top: 40vh;
+    left: calc(50vw - 60vh);
+}
+#choose.registering .link:last-child{
+    top:40vh;
+    right: calc(50vw - 60vh);
 }
 #index_bg{
     /* z-index: -1; */
@@ -68,6 +76,7 @@ body{
 }
 .music_icon_mouse{  /*鼠标点击生成音乐图标*/
     display: block;
+    z-index: -1;
     width: 20px;
     height: 29px;
     position: fixed;
@@ -78,6 +87,7 @@ body{
     transition: top 2s,left 2s,right 2s,opacity 2s;
 }
 .ripple{
+    z-index: -1;
     position: fixed;
     border-radius: 50%;
     height: 3px;
