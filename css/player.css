@@ -1,0 +1,74 @@
+#bg{
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+#disc{
+    height: 100vh;
+    width: 100vh;
+    border-radius: 50%;
+    background-color: rgba(75, 75, 75, 0.89);
+    position: fixed;
+    top: -50vh;
+    left: calc(50vw - 50vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 100px black;
+    animation: disc_circle 10s linear infinite;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 2s;
+    display: none;
+}
+@keyframes disc_circle {
+    from{transform: rotate(0deg) scale(1);}
+    25%{transform: scale(0.99);}
+    50%{transform: scale(1);}
+    75%{transform: scale(0.99);}
+    to{transform: rotate(360deg) scale(1);}
+}
+#disc .light{
+    height: 50vh;
+    width: 10px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    transform-origin: top;
+    box-shadow: 0 0 100px white;
+}
+#disc .light:last-child{
+    transform: rotate(45deg);
+}
+#disc .light:first-child{
+    transform: rotate(-45deg);
+}
+.disc_line{
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid black;
+    height: 100vh;
+    width: 100vh;
+}
+#disc::after{
+    content: "";
+    /* position: absolute; */
+    background-color: rgb(223, 222, 222);
+    box-shadow: inset 0 0 100px white,0 0 100px black;
+    height: 30vh;
+    width: 30vh;
+    border-radius: 50%;
+    z-index: 1;
+}
+#playList{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: antiquewhite;
+    transition: border-radius 2s,height 2s,width 2s;
+}

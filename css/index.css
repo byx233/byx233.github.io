@@ -47,10 +47,11 @@ body{
 }
 #choose .link::after{
     content: "";
+    position: absolute;
     display: block;
     border: 10vh solid transparent;
     border-top: 10vh solid black;
-    margin-top: 40vh;
+    top: 40vh;
 }
 #choose .link:first-child{
     left: 25vw;
