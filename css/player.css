@@ -1,3 +1,9 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
 #bg{
     z-index: -1;
     height: 100%;
@@ -66,9 +72,60 @@
     top: 50%;
     left: 50%;
     z-index: 10;
-    border-radius: 50%;
+    border-radius: 10px;
     height: 100px;
     width: 100px;
     background-color: antiquewhite;
     transition: border-radius 2s,height 2s,width 2s;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+}
+#playList .close{
+    position: absolute;
+    top: 0;
+    left: 280px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blue;
+    z-index: 100;
+}
+#playList.active{
+    height: 500px;
+    width: 300px;
+}
+#playList::before{
+    content: "";
+    position: absolute;
+    height: 500px;
+    width: 300px;
+    left: 0;
+    top: 0;
+    background-color: aqua;
+    opacity: 0.9;
+    filter: blur(100px);
+    transition: opacity 2s;
+}
+#playList.active::before{
+    opacity: 0;
+}
+#bg #ball_wall{
+    position: fixed;
+    z-index: -2;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+#bg .ball_blur{
+    transform: translate(-50%,-50%) scale(1);
+    transition: top 6s linear,left 6s linear,transform 6s;
+    position: fixed;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+    background-color: gray;
+    filter: blur(10px);
+    top: 50%;
+    left: 50%;
 }
