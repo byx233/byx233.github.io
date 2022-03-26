@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+#bg,#broken_line_wall{
+    position: fixed;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+.broken_line{
+    transform-origin: left;
+    /* transform: rotate(); */
+    position: absolute;
+    animation: 10s linear;
+    height: 2px;
+    background-color: black;
+    border-left: .1px solid black;
+    border-right: .1px solid black;
+    box-shadow: 1px 1px 2px gray;
+    border-radius: 2px;
+}
+@keyframes broken_line_run_single{
+    from{left: -400px;}
+    to{left: calc(100vw + 400px);}
+}
+@keyframes broken_line_run_double{
+    from{right: -400px;}
+    to{right: calc(100vw + 400px);}
+}
